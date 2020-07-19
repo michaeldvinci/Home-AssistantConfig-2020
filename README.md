@@ -4,7 +4,8 @@ My Currrent Home Assistant Setup
 
 ![Frontend](/images/frontend.jpg) 
 
-<h3>Ambilight Demo</h3> - <a href="https://www.youtube.com/watch?v=KZLKFZN6v0U">Build Tutorial (YouTube)</a>
+<h3>Ambilight Demo - Hyperion.ng & WLED</h3>
+<a href="https://www.youtube.com/watch?v=KZLKFZN6v0U">Build Tutorial (YouTube)</a>
 
 ![Frontend](/images/ambilight.gif) 
 
