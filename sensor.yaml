@@ -1,0 +1,14 @@
+- platform: seventeentrack
+  username: !secret 17_user
+  password: !secret 17_pass
+  
+- platform: template
+  sensors:
+    tv_estimated_current_3_a:
+      friendly_name: "TV"
+      unit_of_measurement: "A"
+      value_template: '{{ states.sensor.wled_estimated_current_3.state | multiply(0.001) | round(3) }}'
+    bar_estimated_current_2_a:
+      friendly_name: "Bar"
+      unit_of_measurement: "A"
+      value_template: '{{ states.sensor.wled_estimated_current_2.state | multiply(0.001) | round(3) }}'

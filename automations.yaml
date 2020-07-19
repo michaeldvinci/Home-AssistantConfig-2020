@@ -1,0 +1,181 @@
+## Notify of High Disk Use - credit to @sauloonzem thank you
+- alias: Disk Use Alarm
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.disk_use
+    above: 12
+  action:
+  - service: notify.mobile_app_mike_s_iphone_xs
+    data:
+      title: 'HA Server'
+      message: 'Warning - HA Server Disk Use is {{states.sensor.disk_use.state}}GB'
+        
+## Notify of High CPU Usage - credit to @sauloonzem thank you
+- alias: CPU Use Alarm
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.processor_use
+    above: 85
+  action:
+  - service: notify.mobile_app_mike_s_iphone_xs
+    data:
+      title: 'HA Server'
+      message: 'Warning - HA Server Processor {{states.sensor.processor_use.state}}%'
+      
+## Notify if CPU Temperature is High - credit to @sauloonzem thank you
+- alias: CPU Temp Alarm
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.cpu_temperature
+    above: 185
+  action:
+  - service: notify.mobile_app_mike_s_iphone_xs
+    data:
+      title: 'HA Server'
+      message: 'Warning - HA Server CPU Temp is {{states.sensor.cpu_temperature.state}}f'
+
+
+#####################################
+###                               ###
+###           Hyperion            ###
+###                               ###
+#####################################
+
+- alias: Restart Hyperion when unavailable
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: light.hyperion
+      from: "on"
+      to: "unavailable"
+    - platform: state
+      entity_id: light.hyperion
+      from: "off"
+      to: "unavailable"
+  action:
+    - service: light.turn_off
+      entity_id: light.wled_3
+    - delay: '00:00:01'
+    - data:
+        brightness: 230
+        entity_id: light.wled_3
+      service: light.turn_on
+      
+- alias: restart hyperion
+  initial_state: 'on'
+  trigger: []
+  action:
+    - service: light.turn_off
+      entity_id: light.hyperion
+    - service: light.turn_off
+      entity_id: light.wled_3
+    - delay: '00:00:01'
+    - service: light.turn_on
+      data:
+        entity_id: light.hyperion
+        effect: "HDMI"
+    - delay: '00:00:01'
+    - service: light.turn_on
+      data:
+        brightness: 230
+        entity_id: light.wled_3
+      
+
+
+#####################################
+###                               ###
+###              WLED             ###
+###                               ###
+#####################################
+
+- alias: Notify TV Ambilight mA Usage Alarm
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.wled_estimated_current_3
+    above: 8000
+  action:
+    service: notify.mobile_app_michaels_iphone
+    data:
+      title: 'TV Ambilight'
+      message: 'Warning - TV Ambilight at {{states.sensor.wled_estimated_current_3.state}}mAh'
+      data:
+        push: 
+          category: "alarm"
+
+- id: restart_wled
+  alias: 'restart wled - tv'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: RESTART_WLED
+  action: 
+    - service: homeassistant.turn_off
+      entity_id: light.wled_3
+    - delay: '00:00:05'
+    - service: homeassistant.turn_on
+      entity_id: light.wled_3
+
+
+#####################################
+###                               ###
+###              Door             ###
+###                               ###
+#####################################
+
+- alias: Notify Door Unlocked Alarm
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.michaels_iphone
+      from: "home"
+      to: "not_home"
+  condition:
+    condition: state
+    entity_id: lock.august_smart_lock_pro
+    state: "unlocked"
+  action:
+    service: notify.mobile_app_michaels_iphone
+    data:
+      title: "Door Unlocked"
+      message: "The August Smart lock is still unlocked."
+      data:
+        push: 
+          category: "door"
+
+- id: lock_door
+  alias: 'lock door automation'
+  initial_state: 'on'
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: LOCK_DOOR
+  action: 
+    - service: lock.lock
+      entity_id: lock.august_smart_lock_pro
+
+
+#####################################
+###                               ###
+###              Door             ###
+###                               ###
+#####################################
+
+- alias: Notify Pool Area Entered
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.michaels_iphone
+      from: "home"
+      to: "pool"
+  action:
+    service: notify.mobile_app_michaels_iphone
+    data:
+      title: "Looks like you're at the pool, you lucky bastard"
+      message: "The pool door code is 2-5-3."

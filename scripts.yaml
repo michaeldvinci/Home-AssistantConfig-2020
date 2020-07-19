@@ -1,0 +1,15 @@
+pc_off:
+  alias: "PC - Suspend"
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "iotlink/workgroup/cobblepot/commands/suspend"
+        payload: ""
+
+test_notification:
+  alias: "test_notification"
+  sequence:
+    - service: notify.mobile_app_michaels_iphone
+      data:
+        title: "Looks like you're at the pool, you lucky bastard"
+        message: "The pool door code is 2-5-3."

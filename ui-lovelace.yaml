@@ -1,0 +1,60 @@
+resources:
+    - url: /local/community/custom-header/custom-header.js
+      type: js
+background: var(--background-image)
+title: Apartment
+custom_header:
+  background: 'rgba(155, 155, 155, 0.25)'
+  button_text:
+    options: '{{ hours24 }}:{{ minutesLZ }}'
+  compact_mode: false
+views:
+  - badges:
+      - entity: binary_sensor.updater
+      - entity: person.mike_vinci
+      - entity: sensor.bedroom_switch_battery_level
+      - entity: sensor.living_room_switch_battery_level
+      - entity: sensor.amplifi_router_b_sent
+      - entity: sensor.amplifi_router_packets_received
+      - entity: sensor.amplifi_router_packets_sent
+      - entity: sensor.amplifi_router_kib_s_received
+      - entity: sensor.amplifi_router_kib_s_sent
+      - entity: sensor.amplifi_router_packets_s_received
+      - entity: sensor.amplifi_router_packets_s_sent
+      - entity: sensor.amplifi_router_b_received
+      - entity: sun.sun
+    cards:
+      - cards:
+        - entity: light.wled_3
+          name: TV Ambilight
+          type: light
+        - entity: light.wled
+          name: Entrance Ambilight
+          type: light
+        - entity: light.wled_2
+          name: Bar Ambilight
+          type: light
+        type: horizontal-stack
+      - cards:
+        - entities:
+            - lock.august_smart_lock_pro
+            - sensor.wled_estimated_current
+            - sensor.wled_estimated_current_2
+            - sensor.wled_estimated_current_3
+          type: entities
+        type: vertical-stack
+      - entities:
+          - light.bar_2
+          - light.bed_left_2
+          - light.bed_right_2
+          - light.corner_2
+          - light.dining_2
+          - light.entrance_2
+          - light.far_corner_2
+          - light.hall_2
+        title: Light
+        type: entities
+    panel: false
+    path: default_view
+    theme: ios-dark-mode
+    title: Home

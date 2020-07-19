@@ -1,0 +1,25 @@
+window_lights:
+  name: Window Lights
+  entities:
+    - light.corner_2
+    - light.far_corner_2
+    
+everything_else_lights:
+  name: Everything Else Lights
+  entities:
+    - light.entrance_2
+    - light.dining_2
+    - light.bar_2
+    - light.hall_2
+    
+bedroom_lights:
+  name: Bedroom Lights
+  entities: 
+    - light.bed_left_2
+    - light.bed_right_2
+    
+living_room_lights:
+  name: Living Room Lights
+  entities: 
+    - group.window_lights
+    - group.everything_else_lights
