@@ -33,6 +33,53 @@ updater:
 
 history:
 
+emulated_hue:
+  listen_port: 80
+  expose_by_default: false
+  entities:
+    light.back_corner:
+      hidden: false
+    light.bar:
+      hidden: false
+    light.bathroom_1:
+      hidden: false
+    light.bathroom_2:
+      hidden: false
+    light.bathroom_3:
+      hidden: false
+    light.bed_left:
+      hidden: false
+    light.bed_right:
+      hidden: false
+    light.bedroom_top:
+      hidden: false
+    light.desk:
+      hidden: false
+    light.entrance:
+      hidden: false
+    light.front_corner:
+      hidden: false
+    light.hall:
+      hidden: false
+    light.hyperion:
+      hidden: false
+    light.wled_3:
+      hidden: false
+    light.wled_desk:
+      hidden: false
+    light.wled_maker_select:
+      hidden: false
+    light.wled_nano_leaves:
+      hidden: false
+    lock.august_smart_lock_pro:
+      hidden: false
+    script.pc_off:
+      hidden: false
+    switch.3d_printer:
+      hidden: false
+    switch.peanut_plug:
+      hidden: false
+
 ios:
   push:
     categories:
@@ -67,16 +114,30 @@ ios:
             destructive: false
             behavior: 'default'
 
-emulated_hue:
-  listen_port: 80
+### OCTOPRINT STUFF ###
+
+octoprint:
+  host: !secret octoprint_host
+  api_key: !secret octoprint_api_key
+  bed: true
+  name: "maker_select"
+
+tplink:
+  discovery: false
+  switch:
+    - host: !secret tplink_ip
+
+camera:
+  - platform: mjpeg
+    name: "octoprint_camera"
+    still_image_url: !secret octoprint_still
+    mjpeg_url: !secret octoprint_cam
+    
+### --- ###    
 
 logger:
 
 stream:
-
-homekit:
-  filter:
-    exclude_domains: [calendar]
 
 panel_iframe:
   ide:
@@ -94,6 +155,7 @@ automation: !include automations.yaml
 group: !include groups.yaml
 light: !include lights.yaml
 media_player: !include media-player.yaml
+remote: !include remote.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml
 sensor: !include sensor.yaml

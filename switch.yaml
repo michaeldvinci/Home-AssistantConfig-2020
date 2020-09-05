@@ -7,4 +7,3 @@
     - service: script.turn_on
       data:
         entity_id: script.pc_off
-   

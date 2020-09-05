@@ -3,13 +3,13 @@
   initial_state: 'on'
   trigger:
     platform: numeric_state
-    entity_id: sensor.disk_use
-    above: 12
+    entity_id: sensor.disk_free
+    below: 65
   action:
-  - service: notify.mobile_app_mike_s_iphone_xs
+  - service: notify.notify
     data:
       title: 'HA Server'
-      message: 'Warning - HA Server Disk Use is {{states.sensor.disk_use.state}}GB'
+      message: 'Warning - HA Server Disk Free is {{ states.sensor.disk_free.state }}GB'
         
 ## Notify of High CPU Usage - credit to @sauloonzem thank you
 - alias: CPU Use Alarm
@@ -19,10 +19,10 @@
     entity_id: sensor.processor_use
     above: 85
   action:
-  - service: notify.mobile_app_mike_s_iphone_xs
+  - service: notify.notify
     data:
       title: 'HA Server'
-      message: 'Warning - HA Server Processor {{states.sensor.processor_use.state}}%'
+      message: 'Warning - HA Server Processor {{ states.sensor.processor_use.state }}%'
       
 ## Notify if CPU Temperature is High - credit to @sauloonzem thank you
 - alias: CPU Temp Alarm
@@ -30,12 +30,12 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.cpu_temperature
-    above: 185
+    above: 165
   action:
-  - service: notify.mobile_app_mike_s_iphone_xs
+  - service: notify.notify
     data:
       title: 'HA Server'
-      message: 'Warning - HA Server CPU Temp is {{states.sensor.cpu_temperature.state}}f'
+      message: 'Warning - HA Server CPU Temp is {{ states.sensor.cpu_temperature.state }}°F'
 
 
 #####################################
@@ -98,10 +98,10 @@
     entity_id: sensor.wled_estimated_current_3
     above: 8000
   action:
-    service: notify.mobile_app_michaels_iphone
+    service: notify.notify
     data:
       title: 'TV Ambilight'
-      message: 'Warning - TV Ambilight at {{states.sensor.wled_estimated_current_3.state}}mAh'
+      message: 'Warning - TV Ambilight at {{ states.sensor.wled_estimated_current_3.state }}mAh'
       data:
         push: 
           category: "alarm"
@@ -140,7 +140,7 @@
     entity_id: lock.august_smart_lock_pro
     state: "unlocked"
   action:
-    service: notify.mobile_app_michaels_iphone
+    service: notify.notify
     data:
       title: "Door Unlocked"
       message: "The August Smart lock is still unlocked."
@@ -175,7 +175,71 @@
       from: "home"
       to: "pool"
   action:
-    service: notify.mobile_app_michaels_iphone
+    service: notify.notify
     data:
       title: "Looks like you're at the pool, you lucky bastard"
       message: "The pool door code is 2-5-3."
+      
+      
+#####################################
+###                               ###
+###           OctoPrint           ###
+###                               ###
+#####################################
+  
+- alias: Send a notice when 3D print is done
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.maker_select_printing
+      to: "off"
+      from: "on"
+  action:
+    - service: notify.notify
+      data:
+        message: "Your 3D print is complete"
+        title: "Print Complete"
+      
+      
+#####################################
+###                               ###
+###            Garden             ###
+###                               ###
+#####################################
+  
+- alias: peaches_too_dry
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.monoprice_pir_sensor_1_relative_humidity_measurement
+    below: 90
+  action:
+    service: notify.notify
+    data:
+      message: "The humidity is too low!"
+      title: "Time to mist the peaches."
+  
+- alias: peaches_too_hot
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.monoprice_pir_sensor_1_temperature_measurement
+    above: 81
+  action:
+    service: notify.notify
+    data:
+      message: "The temp is too high!"
+      title: "Time to cool off the peaches."
+  
+- alias: peaches_too_cool
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.monoprice_pir_sensor_1_temperature_measurement
+    below: 75
+  action:
+    service: notify.notify
+    data:
+      message: "The temp is too low!"
+      title: "Time to warm up the peaches."
+        
+        
