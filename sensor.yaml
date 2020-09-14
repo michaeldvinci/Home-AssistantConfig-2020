@@ -7,7 +7,7 @@
     tv_estimated_current_3_a:
       friendly_name: "TV"
       unit_of_measurement: "A"
-      value_template: '{{ states.sensor.wled_estimated_current_3.state | multiply(0.001) | round(3) }}'
+      value_template: '{{ states.sensor.wled_estimated_current_3_a.state | multiply(0.001) | round(3) }}'
     wled_maker_select_estimated_current_a:
       friendly_name: "Maker Select"
       unit_of_measurement: "A"
@@ -16,13 +16,10 @@
       friendly_name: "Nano Leaf"
       unit_of_measurement: "A"
       value_template: '{{ states.sensor.wled_nano_leaves_estimated_current.state | multiply(0.001) | round(3) }}'
-   
-- platform: mitemp_bt
-  mac: 'A4:C1:38:E9:E6:10'
-  monitored_conditions:
-    - temperature
-    - humidity
-    - battery
+    wled_desk_estimated_current_a:
+      friendly_name: "Desk"
+      unit_of_measurement: "A"
+      value_template: '{{ states.sensor.wled_desk_estimated_current.state | multiply(0.001) | round(3) }}'
 
 - platform: cpuspeed
   name: processor_use

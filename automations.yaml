@@ -215,7 +215,7 @@
   action:
     service: notify.notify
     data:
-      message: "The humidity is too low!"
+      message: "The humidity ({{ states.sensor.monoprice_pir_sensor_1_relative_humidity_measurement.state }}%) is too low!"
       title: "Time to mist the peaches."
   
 - alias: peaches_too_hot
@@ -227,7 +227,7 @@
   action:
     service: notify.notify
     data:
-      message: "The temp is too high!"
+      message: "The temp ({{ states.sensor.monoprice_pir_sensor_1_temperature_measurement.state }}°) is too high!"
       title: "Time to cool off the peaches."
   
 - alias: peaches_too_cool
@@ -239,7 +239,7 @@
   action:
     service: notify.notify
     data:
-      message: "The temp is too low!"
+      message: "The temp ({{ states.sensor.monoprice_pir_sensor_1_temperature_measurement.state }}°) is too low!"
       title: "Time to warm up the peaches."
         
         
