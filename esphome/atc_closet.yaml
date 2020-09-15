@@ -1,0 +1,35 @@
+esphome:
+  name: atc_closet
+  platform: ESP32
+  board: nodemcu-32s 
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_pass
+
+api:
+
+logger:
+  #level: VERY_VERBOSE
+
+ota:
+
+esp32_ble_tracker:
+  scan_parameters:
+    window: 120ms
+
+web_server:
+  port: 80
+
+mqtt:
+  broker: 192.168.50.9
+
+sensor:
+  - platform: atc_mithermometer
+    mac_address: !secret atc_closet_mac
+    temperature:
+      name: "atc_closet_temperature"
+    humidity:
+      name: "atc_closet_humidity"
+    battery_level:
+      name: "atc_closet_battery"
