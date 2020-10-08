@@ -180,6 +180,40 @@
       title: "Looks like you're at the pool, you lucky bastard"
       message: "The pool door code is 2-5-3."
       
+- alias: Notify Door Unlocked
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: lock.august_smart_lock_pro
+      from: "locked"
+      to: "unlocked"
+  condition: 
+    - condition: state
+      entity_id: 'device_tracker.michaels_iphone'
+      state: 'away'
+  action:
+    service: notify.notify
+    data:
+      title: "Door Unlocked"
+      message: "Someone unlocked the August Smart Lock."
+      
+- alias: Notify Door Locked
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: lock.august_smart_lock_pro
+      from: "unlocked"
+      to: "locked"
+  condition: 
+    - condition: state
+      entity_id: 'device_tracker.michaels_iphone'
+      state: 'away'
+  action:
+    service: notify.notify
+    data:
+      title: "Door Locked"
+      message: "Someone locked the August Smart Lock."
+      
       
 #####################################
 ###                               ###
@@ -198,48 +232,3 @@
       data:
         message: "Your 3D print is complete"
         title: "Print Complete"
-      
-      
-#####################################
-###                               ###
-###            Garden             ###
-###                               ###
-#####################################
-  
-- alias: peaches_too_dry
-  initial_state: 'on'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.monoprice_pir_sensor_1_relative_humidity_measurement
-    below: 90
-  action:
-    service: notify.notify
-    data:
-      message: "The humidity ({{ states.sensor.monoprice_pir_sensor_1_relative_humidity_measurement.state }}%) is too low!"
-      title: "Time to mist the peaches."
-  
-- alias: peaches_too_hot
-  initial_state: 'on'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.monoprice_pir_sensor_1_temperature_measurement
-    above: 81
-  action:
-    service: notify.notify
-    data:
-      message: "The temp ({{ states.sensor.monoprice_pir_sensor_1_temperature_measurement.state }}°) is too high!"
-      title: "Time to cool off the peaches."
-  
-- alias: peaches_too_cool
-  initial_state: 'on'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.monoprice_pir_sensor_1_temperature_measurement
-    below: 75
-  action:
-    service: notify.notify
-    data:
-      message: "The temp ({{ states.sensor.monoprice_pir_sensor_1_temperature_measurement.state }}°) is too low!"
-      title: "Time to warm up the peaches."
-        
-        

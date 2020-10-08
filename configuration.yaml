@@ -144,6 +144,10 @@ panel_iframe:
     title: "IDE"
     icon: mdi:code-braces
     url: !secret ide_link
+  tasmota:
+    title: "Tasmota"
+    icon: mdi:power-socket-us
+    url: !secret tasmota_link
     
 system_health:
 
