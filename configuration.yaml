@@ -4,7 +4,7 @@ homeassistant:
   unit_system: imperial
   time_zone: America/New_York
   customize: !include customize.yaml
-  
+
 http:
   ip_ban_enabled: true
   login_attempts_threshold: 5
@@ -18,7 +18,7 @@ frontend:
     - /local/custom_ui/state-card-custom-ui.html
   extra_html_url_es5:
     - /local/custom_ui/state-card-custom-ui-es5.html
-  
+
 config:
 
 mobile_app:
@@ -84,35 +84,35 @@ ios:
   push:
     categories:
       - name: Alarm
-        identifier: 'alarm'
+        identifier: "alarm"
         actions:
-          - identifier: 'RESTART_WLED'
-            title: 'Restart WLED'
-            authenticationMode: 'background'
+          - identifier: "RESTART_WLED"
+            title: "Restart WLED"
+            authenticationMode: "background"
             authenticationRequired: no
             destructive: true
-            behavior: 'default'
-          - identifier: 'DISMISS'
-            title: 'Dismiss'
-            authenticationMode: 'background'
+            behavior: "default"
+          - identifier: "DISMISS"
+            title: "Dismiss"
+            authenticationMode: "background"
             authenticationRequired: no
             destructive: false
-            behavior: 'default'
+            behavior: "default"
       - name: Door
-        identifier: 'door'
+        identifier: "door"
         actions:
-          - identifier: 'LOCK_DOOR'
-            title: 'Lock Door'
-            authenticationMode: 'background'
+          - identifier: "LOCK_DOOR"
+            title: "Lock Door"
+            authenticationMode: "background"
             authenticationRequired: no
             destructive: true
-            behavior: 'default'
-          - identifier: 'DISMISS'
-            title: 'Dismiss'
-            authenticationMode: 'background'
+            behavior: "default"
+          - identifier: "DISMISS"
+            title: "Dismiss"
+            authenticationMode: "background"
             authenticationRequired: no
             destructive: false
-            behavior: 'default'
+            behavior: "default"
 
 ### OCTOPRINT STUFF ###
 
@@ -132,23 +132,17 @@ camera:
     name: "octoprint_camera"
     still_image_url: !secret octoprint_still
     mjpeg_url: !secret octoprint_cam
-    
-### --- ###    
 
 logger:
 
 stream:
 
 panel_iframe:
-  ide:
-    title: "IDE"
-    icon: mdi:code-braces
-    url: !secret ide_link
   tasmota:
     title: "Tasmota"
     icon: mdi:power-socket-us
     url: !secret tasmota_link
-    
+
 system_health:
 
 # Text to speech
