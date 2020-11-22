@@ -127,12 +127,6 @@ tplink:
   switch:
     - host: !secret tplink_ip
 
-camera:
-  - platform: mjpeg
-    name: "octoprint_camera"
-    still_image_url: !secret octoprint_still
-    mjpeg_url: !secret octoprint_cam
-
 logger:
 
 stream:
@@ -150,6 +144,8 @@ tts:
   - platform: google_translate
 
 automation: !include automations.yaml
+binary_sensor: !include binary-sensor.yaml
+camera: !include camera.yaml
 group: !include groups.yaml
 light: !include lights.yaml
 media_player: !include media-player.yaml
