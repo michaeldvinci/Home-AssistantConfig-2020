@@ -23,8 +23,6 @@ config:
 
 mobile_app:
 
-fastdotcom:
-
 discovery:
   ignore:
     - philips_hue
@@ -32,6 +30,19 @@ discovery:
 updater:
 
 history:
+
+fastdotcom:
+  scan_interval:
+    minutes: 30
+
+zha_map:
+
+zha:
+  zigpy_config:
+    ota:
+      ikea_provider: true
+      ledvance_provider: true
+      otau_directory: /config/zha_ota
 
 emulated_hue:
   listen_port: 80

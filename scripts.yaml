@@ -1,61 +1,56 @@
 pc_off:
-  alias: "PC - Suspend"
+  alias: PC - Suspend
   sequence:
-    - service: mqtt.publish
-      data:
-        topic: "iotlink/workgroup/cobblepot/commands/suspend"
-        payload: ""
-
+  - service: mqtt.publish
+    data:
+      topic: iotlink/workgroup/cobblepot/commands/suspend
+      payload: ''
 test_notification:
-  alias: "test_notification"
+  alias: test_notification
   sequence:
-    - service: notify.notify
-      data:
-        title: "Looks like you're at the pool, you lucky bastard"
-        message: "The pool door code is 2-5-3."
-
-
-#################################################################
-## Harmony Activities
-#################################################################
+  - service: notify.notify
+    data:
+      title: Looks like you're at the pool, you lucky bastard
+      message: The pool door code is 2-5-3.
 fire_tv_activity_on:
-  alias: "Turn on Fire TV"
+  alias: Turn on Fire TV
   sequence:
-    - service: remote.turn_on
-      data:
-        activity: "44977982"
-
+  - service: remote.turn_on
+    data:
+      activity: '44977982'
 fire_tv_activity_off:
-  alias: "Turn off Fire TV"
+  alias: Turn off Fire TV
   sequence:
-    - service: remote.turn_off
-      data:
-        activity: "44977982"
-
+  - service: remote.turn_off
+    data:
+      activity: '44977982'
 ps4_activity_on:
-  alias: "Turn on PS4"
+  alias: Turn on PS4
   sequence:
-    - service: remote.turn_on
-      data:
-        activity: "35574398"
-
+  - service: remote.turn_on
+    data:
+      activity: '35574398'
 ps4_activity_off:
-  alias: "Turn off PS4"
+  alias: Turn off PS4
   sequence:
-    - service: remote.turn_off
-      data:
-        activity: "35574398"
-
+  - service: remote.turn_off
+    data:
+      activity: '35574398'
 apple_tv_activity_on:
-  alias: "Turn on Apple TV"
+  alias: Turn on Apple TV
   sequence:
-    - service: remote.turn_on
-      data:
-        activity: "35574396"
-
+  - service: remote.turn_on
+    data:
+      activity: '35574396'
 apple_tv_activity_off:
-  alias: "Turn off Apple TV"
+  alias: Turn off Apple TV
   sequence:
-    - service: remote.turn_off
-      data:
-        activity: "35574396"
+  - service: remote.turn_off
+    data:
+      activity: '35574396'
+'1606162813920':
+  alias: Start Zigbee Map Scan
+  sequence:
+  - service: zha_map.scan_now
+    data: {}
+  mode: single
