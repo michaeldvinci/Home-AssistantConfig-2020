@@ -1,4 +1,4 @@
 - platform: ping
   host: !secret pc_ip
   name: "cobblepot_power"
-  scan_interval: .5
+  scan_interval: 1

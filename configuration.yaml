@@ -1,158 +1,27 @@
-homeassistant:
-  name: Home
-  elevation: 0
-  unit_system: imperial
-  time_zone: America/New_York
-  customize: !include customize.yaml
-
-http:
-  ip_ban_enabled: true
-  login_attempts_threshold: 5
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
-  base_url: !secret base_url
-
-frontend:
-  themes: !include_dir_merge_named themes
-  extra_html_url:
-    - /local/custom_ui/state-card-custom-ui.html
-  extra_html_url_es5:
-    - /local/custom_ui/state-card-custom-ui-es5.html
+homeassistant: !include home.yaml
+http: !include http.yaml
+frontend: !include frontend.yaml
 
 config:
 
-mobile_app:
-
-discovery:
-  ignore:
-    - philips_hue
+discovery: !include discovery.yaml
 
 updater:
-
 history:
-
-fastdotcom:
-  scan_interval:
-    minutes: 30
-
+logger:
+mobile_app:
+stream:
+system_health:
 zha_map:
 
-zha:
-  zigpy_config:
-    ota:
-      ikea_provider: true
-      ledvance_provider: true
-      otau_directory: /config/zha_ota
-
-emulated_hue:
-  listen_port: 80
-  expose_by_default: false
-  entities:
-    light.back_corner_zigbee:
-      hidden: false
-    light.bathroom_1_zigbee:
-      hidden: false
-    light.bathroom_2_zigbee:
-      hidden: false
-    light.bathroom_3_zigbee:
-      hidden: false
-    light.bed_left_zigbee:
-      hidden: false
-    light.bed_right_zigbee:
-      hidden: false
-    light.bedroom_top_zigbee:
-      hidden: false
-    light.bench_zigbee:
-      hidden: false
-    light.desk_zigbee:
-      hidden: false
-    light.entrance_zigbee:
-      hidden: false
-    light.front_corner_zigbee:
-      hidden: false
-    light.hall_zigbee:
-      hidden: false
-    light.hyperion:
-      hidden: false
-    light.wled_3:
-      hidden: false
-    light.wled_desk:
-      hidden: false
-    light.wled_maker_select:
-      hidden: false
-    light.wled_nano_leaves:
-      hidden: false
-    lock.august_smart_lock_pro:
-      hidden: false
-    script.pc_off:
-      hidden: false
-    switch.3d_printer:
-      hidden: false
-    switch.peanut_plug:
-      hidden: false
-
-ios:
-  push:
-    categories:
-      - name: Alarm
-        identifier: "alarm"
-        actions:
-          - identifier: "RESTART_WLED"
-            title: "Restart WLED"
-            authenticationMode: "background"
-            authenticationRequired: no
-            destructive: true
-            behavior: "default"
-          - identifier: "DISMISS"
-            title: "Dismiss"
-            authenticationMode: "background"
-            authenticationRequired: no
-            destructive: false
-            behavior: "default"
-      - name: Door
-        identifier: "door"
-        actions:
-          - identifier: "LOCK_DOOR"
-            title: "Lock Door"
-            authenticationMode: "background"
-            authenticationRequired: no
-            destructive: true
-            behavior: "default"
-          - identifier: "DISMISS"
-            title: "Dismiss"
-            authenticationMode: "background"
-            authenticationRequired: no
-            destructive: false
-            behavior: "default"
-
-### OCTOPRINT STUFF ###
-
-octoprint:
-  host: !secret octoprint_host
-  api_key: !secret octoprint_api_key
-  bed: true
-  name: "maker_select"
-
-tplink:
-  discovery: false
-  switch:
-    - host: !secret tplink_ip
-
-logger:
-
-stream:
-
-panel_iframe:
-  tasmota:
-    title: "Tasmota"
-    icon: mdi:power-socket-us
-    url: !secret tasmota_link
-
-system_health:
-
-# Text to speech
-tts:
-  - platform: google_translate
+emulated_hue: !include emulated-hue.yaml
+fastdotcom: !include fast.yaml
+ios: !include ios.yaml
+panel_iframe: !include panel.yaml
+octoprint: !include octoprint.yaml
+tplink: !include tplink.yaml
+tts: !include tts.yaml
+zha: !include zha.yaml
 
 automation: !include automations.yaml
 binary_sensor: !include binary-sensor.yaml

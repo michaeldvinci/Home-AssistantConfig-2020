@@ -1,7 +1,2 @@
 - platform: hyperion
   host: !secret hyperion_ip
-  
-- platform: flux_led
-  devices:
-    192.168.50.52:
-      name: peaches_led
