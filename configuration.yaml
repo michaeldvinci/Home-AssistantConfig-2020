@@ -12,7 +12,6 @@ logger:
 mobile_app:
 stream:
 system_health:
-zha_map:
 
 emulated_hue: !include emulated-hue.yaml
 fastdotcom: !include fast.yaml

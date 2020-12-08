@@ -16,6 +16,10 @@
       friendly_name: "Desk estimated current"
       unit_of_measurement: "A"
       value_template: "{{ states.sensor.wled_desk_estimated_current.state | multiply(0.001) | round(3) }}"
+    wled_printer_estimated_current_a:
+      friendly_name: "Desk estimated current"
+      unit_of_measurement: "A"
+      value_template: "{{ states.sensor.wled_3d_printer_estimated_current.state | multiply(0.001) | round(3) }}"
 
 - platform: cpuspeed
   name: processor_use

@@ -48,9 +48,3 @@ apple_tv_activity_off:
   - service: remote.turn_off
     data:
       activity: '35574396'
-'1606162813920':
-  alias: Start Zigbee Map Scan
-  sequence:
-  - service: zha_map.scan_now
-    data: {}
-  mode: single
