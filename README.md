@@ -2,7 +2,9 @@ My Currrent Home Assistant Setup
 
 <h3>Frontend</h3>
 
-![Frontend](https://i.imgur.com/hdVWjaF.png) 
+![Frontend](/images/frontend.jpg)  
+
+<img src="./images/frontend_mobile.jpg" width="500">
 
 <h3>Ambilight Demo - Hyperion.ng & WLED</h3>
 <a href="https://www.youtube.com/watch?v=KZLKFZN6v0U">Build Tutorial (YouTube)</a>
