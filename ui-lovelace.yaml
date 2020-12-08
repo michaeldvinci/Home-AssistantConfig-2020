@@ -1,173 +1,150 @@
 custom_header:
   button_text:
-    options: "{{ hours12 }}:{{ minutesLZ }} {{ ampm }}"
+    options: '{{ hours12 }}:{{ minutesLZ }} {{ ampm }}'
   compact_mode: true
   hide_help: true
   hide_unused: true
-title: ""
+title: ''
 views:
-  - badges: []
+  - icon: 'mdi:home-circle'
+    id: home
+    panel: false
+    path: desktop
+    theme: ios-dark-mode
+    title: Apartment
+    visible:
+      - user: 9a3a3e1179de4d66bb85a95a556c0d4f
+    badges: []
     cards:
       - cards:
           - cards:
-              - decimals: 3
-                align_state: center
-                entities:
-                  - color: red
-                    entity: sensor.ambilight_estimated_current_a
-                    name: Ambilight
-                font_size: 100
-                height: 300
-                icon: "mdi:flash"
-                name: Ambilight
-                points_per_hour: 5
-                show:
-                  average: false
-                  fill: false
-                  graph: false
-                  icon: false
-                  labels: false
-                  labels_secondary: false
-                  legend: false
-                  name: true
-                  state: false
-                align_header: center
-                type: "custom:mini-graph-card"
-                update_interval: 300
-              - decimals: 3
-                align_state: center
-                entities:
-                  - color: white
-                    entity: sensor.wled_desk_estimated_current_a
-                    name: Desk
-                font_size: 100
-                height: 300
-                icon: "mdi:flash"
-                name: Desk
-                points_per_hour: 5
-                show:
-                  average: false
-                  fill: false
-                  graph: false
-                  icon: false
-                  labels: false
-                  labels_secondary: false
-                  legend: false
-                  name: true
-                  state: false
-                align_header: center
-                type: "custom:mini-graph-card"
-                update_interval: 300
-              - decimals: 3
-                align_state: center
-                entities:
-                  - color: green
-                    entity: sensor.wled_bench_estimated_current_a
-                    name: Bench
-                font_size: 100
-                height: 300
-                icon: "mdi:flash"
-                name: Bench
-                points_per_hour: 5
-                show:
-                  average: false
-                  fill: false
-                  graph: false
-                  icon: false
-                  labels: false
-                  labels_secondary: false
-                  legend: false
-                  name: true
-                  state: false
-                align_header: center
-                type: "custom:mini-graph-card"
-                update_interval: 300
-            type: horizontal-stack
-          - cards:
-              - entity: light.wled_tv_ambilight
-                name: " "
-                type: light
-              - entity: light.wled_desk_master
-                name: " "
-                type: light
-              - entity: light.wled_bench
-                name: " "
-                type: light
-            type: horizontal-stack
-          - cards:
-              - decimals: 3
-                align_state: center
-                entities:
-                  - color: red
-                    entity: sensor.ambilight_estimated_current_a
-                    name: Ambilight
-                font_size: 80
-                height: 300
-                icon: "mdi:flash"
-                name: Ambilight
-                points_per_hour: 5
-                show:
-                  average: false
-                  fill: false
-                  graph: false
-                  icon: false
-                  labels: false
-                  labels_secondary: false
-                  legend: false
-                  name: false
-                  state: true
-                align_header: center
-                type: "custom:mini-graph-card"
-                update_interval: 300
-              - decimals: 3
-                align_state: center
-                entities:
-                  - color: white
-                    entity: sensor.wled_desk_estimated_current_a
-                    name: Desk
-                font_size: 80
-                height: 300
-                icon: "mdi:flash"
-                name: Desk
-                points_per_hour: 5
-                show:
-                  average: false
-                  fill: false
-                  graph: false
-                  icon: false
-                  labels: false
-                  labels_secondary: false
-                  legend: false
-                  name: false
-                  state: true
-                align_header: center
-                type: "custom:mini-graph-card"
-                update_interval: 300
-              - decimals: 3
-                align_state: center
-                entities:
-                  - color: green
-                    entity: sensor.wled_bench_estimated_current_a
-                    name: Bench
-                font_size: 80
-                height: 300
-                icon: "mdi:flash"
-                name: Bench
-                points_per_hour: 5
-                show:
-                  average: false
-                  fill: false
-                  graph: false
-                  icon: false
-                  labels: false
-                  labels_secondary: false
-                  legend: false
-                  name: false
-                  state: true
-                align_header: center
-                type: "custom:mini-graph-card"
-                update_interval: 300
-            type: horizontal-stack
+              - cards:
+                  - cards:
+                      - entity: light.wled_tv_ambilight
+                        name: ' '
+                        type: light
+                        icon: 'mdi:television'
+                        style: |
+                          :host {
+                          --paper-item-icon-color: red;
+                           }
+                      - decimals: 3
+                        align_state: center
+                        entities:
+                          - color: red
+                            entity: sensor.ambilight_estimated_current_a
+                            name: Ambilight
+                        font_size: 80
+                        height: 300
+                        icon: 'mdi:flash'
+                        name: Ambilight
+                        points_per_hour: 5
+                        show:
+                          average: false
+                          fill: false
+                          graph: false
+                          icon: false
+                          labels: false
+                          labels_secondary: false
+                          legend: false
+                          name: false
+                          state: true
+                        align_header: center
+                        type: 'custom:mini-graph-card'
+                        update_interval: 300
+                    type: vertical-stack
+                  - cards:
+                      - entity: light.wled_desk_master
+                        name: ' '
+                        type: light
+                        icon: 'mdi:desktop-tower-monitor'
+                      - decimals: 3
+                        align_state: center
+                        entities:
+                          - color: white
+                            entity: sensor.wled_desk_estimated_current_a
+                            name: Backlight
+                        font_size: 80
+                        height: 300
+                        icon: 'mdi:flash'
+                        name: Backlight
+                        points_per_hour: 5
+                        show:
+                          average: false
+                          fill: false
+                          graph: false
+                          icon: false
+                          labels: false
+                          labels_secondary: false
+                          legend: false
+                          name: false
+                          state: true
+                        align_header: center
+                        type: 'custom:mini-graph-card'
+                        update_interval: 300
+                    type: vertical-stack
+                  - cards:
+                      - entity: light.wled_bench
+                        name: ' '
+                        type: light
+                        icon: 'mdi:soldering-iron'
+                      - decimals: 3
+                        align_state: center
+                        entities:
+                          - color: green
+                            entity: sensor.wled_bench_estimated_current_a
+                            name: Bench
+                        font_size: 80
+                        height: 300
+                        icon: 'mdi:flash'
+                        name: Bench
+                        points_per_hour: 5
+                        show:
+                          average: false
+                          fill: false
+                          graph: false
+                          icon: false
+                          labels: false
+                          labels_secondary: false
+                          legend: false
+                          name: false
+                          state: true
+                        align_header: center
+                        type: 'custom:mini-graph-card'
+                        update_interval: 300
+                    type: vertical-stack
+                  - cards:
+                      - entity: light.wled_3d_printer
+                        name: ' '
+                        type: light
+                        icon: 'mdi:printer-3d-nozzle-outline'
+                      - decimals: 3
+                        align_state: center
+                        entities:
+                          - color: red
+                            entity: sensor.wled_printer_estimated_current_a
+                            name: Ambilight
+                        font_size: 80
+                        height: 300
+                        icon: 'mdi:flash'
+                        name: Ambilight
+                        points_per_hour: 5
+                        show:
+                          average: false
+                          fill: false
+                          graph: false
+                          icon: false
+                          labels: false
+                          labels_secondary: false
+                          legend: false
+                          name: false
+                          state: true
+                        align_header: center
+                        type: 'custom:mini-graph-card'
+                        update_interval: 300
+                    type: vertical-stack
+                type: horizontal-stack
+            type: 'custom:stack-in-card'
           - decimals: 3
             align_state: center
             entities:
@@ -176,13 +153,16 @@ views:
                 name: Ambilight
               - color: white
                 entity: sensor.wled_desk_estimated_current_a
-                name: Desk
+                name: Backlight
               - color: green
                 entity: sensor.wled_bench_estimated_current_a
                 name: Bench
+              - color: blue
+                entity: sensor.wled_printer_estimated_current_a
+                name: Printer
             font_size: 100
             height: 150
-            icon: "mdi:flash"
+            icon: 'mdi:flash'
             name: WLED Estimated Usage (Amps)
             points_per_hour: 5
             show:
@@ -193,104 +173,228 @@ views:
               name: false
               state: false
             align_header: center
-            type: "custom:mini-graph-card"
+            type: 'custom:mini-graph-card'
             update_interval: 300
         type: vertical-stack
       - cards:
           - cards:
-              - entity: lock.august_smart_lock_pro
+              - entity: sensor.hacs
                 type: entity
               - entity: automation.restart_hyperion
                 type: button
             type: horizontal-stack
-          - artwork: cover
-            entity: media_player.fire_stick_kodi
-            name: Kodi | Fire Stick
-            type: "custom:mini-media-player"
+          - cards: []
+            type: horizontal-stack
           - entities:
-              - entity: group.living_room_lights
-                name: Living Room
-              - entity: group.window_lights
+              - type: 'custom:fold-entity-row'
+                head: group.apartment_lights
+                name: Apartment
+              - type: 'custom:fold-entity-row'
+                head: group.window_lights
                 name: Windows
-              - entity: group.everything_else_lights
+              - type: 'custom:fold-entity-row'
+                head: group.everything_else_lights
                 name: Everything Else
-              - entity: group.bedroom_lights
+              - type: 'custom:fold-entity-row'
+                head: group.bedroom_lights
                 name: Bedroom
+              - type: 'custom:fold-entity-row'
+                head: group.bathroom_lights
+                name: Bathroom
             show_header_toggle: false
             type: entities
         type: vertical-stack
-    icon: "mdi:home-circle"
-    id: home
+  - icon: 'mdi:home-circle'
+    id: mobile
+    path: mobile
     panel: false
-    path: default_view
     theme: ios-dark-mode
     title: Apartment
-  - badges: []
+    visible:
+      - user: 5aff311c00d1407d82f0397bf312067d
+    badges: []
     cards:
       - cards:
+          - decimals: 3
+            align_state: center
+            entities:
+              - color: red
+                entity: sensor.ambilight_estimated_current_a
+                name: Ambilight
+              - color: white
+                entity: sensor.wled_desk_estimated_current_a
+                name: Backlight
+              - color: green
+                entity: sensor.wled_bench_estimated_current_a
+                name: Bench
+              - color: blue
+                entity: sensor.wled_printer_estimated_current_a
+                name: Printer
+            font_size: 100
+            height: 150
+            icon: 'mdi:flash'
+            name: WLED Estimated Usage (Amps)
+            points_per_hour: 5
+            show:
+              average: false
+              icon: false
+              labels: true
+              labels_secondary: true
+              name: false
+              state: false
+            align_header: center
+            type: 'custom:mini-graph-card'
+            update_interval: 300
           - cards:
-              - entity: switch.gosund_top_left
-                name: Gosund Left
-                type: button
-              - entity: switch.gosund_top_right
-                name: Gosund Right
+              - cards:
+                  - entity: light.wled_tv_ambilight
+                    name: ' '
+                    type: light
+                    icon: 'mdi:television'
+                  - decimals: 3
+                    align_state: center
+                    entities:
+                      - color: red
+                        entity: sensor.ambilight_estimated_current_a
+                        name: Ambilight
+                    font_size: 80
+                    height: 300
+                    icon: 'mdi:flash'
+                    name: Ambilight
+                    points_per_hour: 5
+                    show:
+                      average: false
+                      fill: false
+                      graph: false
+                      icon: false
+                      labels: false
+                      labels_secondary: false
+                      legend: false
+                      name: false
+                      state: true
+                    align_header: center
+                    type: 'custom:mini-graph-card'
+                    update_interval: 300
+                type: 'custom:stack-in-card'
+              - cards:
+                  - entity: light.wled_desk_master
+                    name: ' '
+                    type: light
+                    icon: 'mdi:desktop-tower-monitor'
+                  - decimals: 3
+                    align_state: center
+                    entities:
+                      - color: white
+                        entity: sensor.wled_desk_estimated_current_a
+                        name: Backlight
+                    font_size: 80
+                    height: 300
+                    icon: 'mdi:flash'
+                    name: Backlight
+                    points_per_hour: 5
+                    show:
+                      average: false
+                      fill: false
+                      graph: false
+                      icon: false
+                      labels: false
+                      labels_secondary: false
+                      legend: false
+                      name: false
+                      state: true
+                    align_header: center
+                    type: 'custom:mini-graph-card'
+                    update_interval: 300
+                type: 'custom:stack-in-card'
+            type: horizontal-stack
+          - cards:
+              - cards:
+                  - entity: light.wled_bench
+                    name: ' '
+                    type: light
+                    icon: 'mdi:soldering-iron'
+                  - decimals: 3
+                    align_state: center
+                    entities:
+                      - color: green
+                        entity: sensor.wled_bench_estimated_current_a
+                        name: Bench
+                    font_size: 80
+                    height: 300
+                    icon: 'mdi:flash'
+                    name: Bench
+                    points_per_hour: 5
+                    show:
+                      average: false
+                      fill: false
+                      graph: false
+                      icon: false
+                      labels: false
+                      labels_secondary: false
+                      legend: false
+                      name: false
+                      state: true
+                    align_header: center
+                    type: 'custom:mini-graph-card'
+                    update_interval: 300
+                type: 'custom:stack-in-card'
+              - cards:
+                  - entity: light.wled_3d_printer
+                    name: ' '
+                    type: light
+                    icon: 'mdi:printer-3d-nozzle-outline'
+                  - decimals: 3
+                    align_state: center
+                    entities:
+                      - color: red
+                        entity: sensor.wled_printer_estimated_current_a
+                        name: Ambilight
+                    font_size: 80
+                    height: 300
+                    icon: 'mdi:flash'
+                    name: Ambilight
+                    points_per_hour: 5
+                    show:
+                      average: false
+                      fill: false
+                      graph: false
+                      icon: false
+                      labels: false
+                      labels_secondary: false
+                      legend: false
+                      name: false
+                      state: true
+                    align_header: center
+                    type: 'custom:mini-graph-card'
+                    update_interval: 300
+                type: 'custom:stack-in-card'
+            type: horizontal-stack
+        type: vertical-stack
+      - cards:
+          - cards:
+              - entity: sensor.hacs
+                type: entity
+              - entity: automation.restart_hyperion
                 type: button
             type: horizontal-stack
-          - align_state: center
-            color_thresholds:
-              - color: "#03C9EC"
-                value: 80
-              - color: "#0374EC"
-                value: 90
-              - color: "#0307EC"
-                value: 95
-            entities:
-              - entity: sensor.monoprice_pir_sensor_1_relative_humidity_measurement
-                name: Humidity
-            height: 150
-            icon: "mdi:water-percent"
-            line_width: 2
-            lower_bound: 85
-            name: Humidity
-            points_per_hour: 12
-            show:
-              average: false
-              fill: fade
-              icon_adaptive_color: true
-              labels: true
-              labels_secondary: true
-              state: true
-            smoothing: true
-            type: "custom:mini-graph-card"
-            unit: "%"
-            update_interval: 300
-          - align_state: center
-            color_thresholds:
-              - color: "#056BD8"
-                value: 65
-              - color: "#8C010B"
-                value: 75
-              - color: "#FF0719"
-                value: 81
-            entities:
-              - entity: sensor.monoprice_pir_sensor_1_temperature_measurement
-            height: 150
-            icon: "mdi:thermometer-lines"
-            line_width: 2
-            name: Temperature
-            points_per_hour: 12
-            show:
-              average: false
-              fill: fade
-              icon_adaptive_color: true
-              labels: true
-              labels_secondary: true
-              state: true
-            smoothing: true
-            type: "custom:mini-graph-card"
-            unit: °F
-            update_interval: 300
+          - cards: []
+            type: horizontal-stack
+          - entities:
+              - type: 'custom:fold-entity-row'
+                head: group.apartment_lights
+                name: Apartment
+              - type: 'custom:fold-entity-row'
+                head: group.window_lights
+                name: Windows
+              - type: 'custom:fold-entity-row'
+                head: group.everything_else_lights
+                name: Everything Else
+              - type: 'custom:fold-entity-row'
+                head: group.bedroom_lights
+                name: Bedroom
+              - type: 'custom:fold-entity-row'
+                head: group.bathroom_lights
+                name: Bathroom
+            show_header_toggle: false
+            type: entities
         type: vertical-stack
-    icon: "mdi:flower-poppy"
-    path: ""
-    title: a/v
