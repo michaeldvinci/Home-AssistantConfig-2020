@@ -1,0 +1,23 @@
+esphome:
+  name: miflora
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: "ghfdh"
+  password: "dfgh"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Miflora Fallback Hotspot"
+    password: "xX0fQKMpmTwb"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
