@@ -1,0 +1,4 @@
+host: !secret octoprint_host
+api_key: !secret octoprint_api_key
+bed: true
+name: "printer"

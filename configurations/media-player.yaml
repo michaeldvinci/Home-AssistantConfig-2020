@@ -1,0 +1,17 @@
+- platform: kodi
+  name: fire_stick_kodi
+  host: !secret fire_stick_ip
+  username: !secret kodi_user
+  password: !secret kodi_pass
+  
+- platform: kodi
+  name: apple_tv_kodi
+  host: !secret atv_ip
+  username: !secret kodi_user
+  password: !secret kodi_pass
+  
+- platform: kodi
+  name: macbook_kodi
+  host: !secret macbook_ip
+  username: !secret kodi_user
+  password: !secret kodi_pass

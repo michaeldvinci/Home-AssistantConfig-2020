@@ -1,0 +1,32 @@
+push:
+  categories:
+    - name: Alarm
+      identifier: "alarm"
+      actions:
+        - identifier: "RESTART_WLED"
+          title: "Restart WLED"
+          authenticationMode: "background"
+          authenticationRequired: no
+          destructive: true
+          behavior: "default"
+        - identifier: "DISMISS"
+          title: "Dismiss"
+          authenticationMode: "background"
+          authenticationRequired: no
+          destructive: false
+          behavior: "default"
+    - name: Door
+      identifier: "door"
+      actions:
+        - identifier: "LOCK_DOOR"
+          title: "Lock Door"
+          authenticationMode: "background"
+          authenticationRequired: no
+          destructive: true
+          behavior: "default"
+        - identifier: "DISMISS"
+          title: "Dismiss"
+          authenticationMode: "background"
+          authenticationRequired: no
+          destructive: false
+          behavior: "default"

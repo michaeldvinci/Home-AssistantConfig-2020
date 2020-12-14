@@ -1,0 +1,41 @@
+apartment_lights:
+  name: Living Room Lights
+  entities:
+    - group.bathroom_lights
+    - group.bedroom_lights
+    - group.everything_else_lights
+    - group.window_lights
+
+bathroom_lights:
+  name: Bathroom Lights
+  entities:
+    - light.bathroom_1_zigbee
+    - light.bathroom_2_zigbee
+    - light.bathroom_3_zigbee
+
+bedroom_lights:
+  name: Bedroom Lights
+  entities:
+    - light.bed_left_zigbee
+    - light.bed_right_zigbee
+    - light.bedroom_top_zigbee
+
+everything_else_lights:
+  name: Everything Else Lights
+  entities:
+    - light.entrance_zigbee
+    - light.desk_zigbee
+    - light.bench_zigbee
+    - light.hall_zigbee
+
+living_room_lights:
+  name: Living Room Lights
+  entities:
+    - group.window_lights
+    - group.everything_else_lights
+
+window_lights:
+  name: Window Lights
+  entities:
+    - light.back_corner_zigbee
+    - light.front_corner_zigbee

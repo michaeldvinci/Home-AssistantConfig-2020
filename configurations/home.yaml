@@ -1,0 +1,5 @@
+name: Home
+elevation: 0
+unit_system: imperial
+time_zone: America/New_York
+customize: !include customize.yaml

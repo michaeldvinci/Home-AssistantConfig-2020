@@ -1,0 +1,56 @@
+- platform: seventeentrack
+  username: !secret 17_user
+  password: !secret 17_pass
+
+- platform: template
+  sensors:
+    ambilight_estimated_current_a:
+      friendly_name: "Ambilight estimated current"
+      unit_of_measurement: "A"
+      value_template: "{{ states.sensor.wled_tv_ambilight_estimated_current.state | multiply(0.001) | round(3) }}"
+    wled_bench_estimated_current_a:
+      friendly_name: "Bench estimated current"
+      unit_of_measurement: "A"
+      value_template: "{{ states.sensor.wled_bench_estimated_current.state | multiply(0.001) | round(3) }}"
+    wled_desk_estimated_current_a:
+      friendly_name: "Desk estimated current"
+      unit_of_measurement: "A"
+      value_template: "{{ states.sensor.wled_desk_estimated_current.state | multiply(0.001) | round(3) }}"
+    wled_printer_estimated_current_a:
+      friendly_name: "Desk estimated current"
+      unit_of_measurement: "A"
+      value_template: "{{ states.sensor.wled_3d_printer_estimated_current.state | multiply(0.001) | round(3) }}"
+
+- platform: cpuspeed
+  name: processor_use
+
+- platform: github
+  access_token: !secret github_api_token
+  repositories:
+    - path: "Aircoookie/WLED"
+      name: github_wled
+
+- platform: command_line
+  name: cpu_temperature
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: "{{ value | multiply(0.001) | round(1) }}"
+
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /
+    - type: disk_use
+      arg: /
+    - type: disk_free
+      arg: /
+    - type: memory_use_percent
+    - type: memory_use
+    - type: memory_free
+    - type: ipv4_address
+      arg: eth0
+    - type: last_boot
+    - type: network_in
+      arg: eth0
+    - type: network_out
+      arg: eth0

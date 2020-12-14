@@ -1,0 +1,33 @@
+ - platform: wake_on_lan
+   name: "PC"
+   mac: !secret wol_mac
+   host: !secret wol_host
+   broadcast_address: 255.255.255.255
+   turn_off:
+    - service: script.turn_on
+      data:
+        entity_id: script.pc_off
+        
+ - platform: mqtt
+   name: "gosund_top_left"
+   state_topic: "stat/gosund_dual/POWER1"
+   command_topic: "cmnd/gosund_dual/POWER1"
+   availability_topic: "tele/gosund_dual/LWT"
+   qos: 1
+   payload_on: "ON"
+   payload_off: "OFF"
+   payload_available: "Online"
+   payload_not_available: "Offline"
+   retain: false
+        
+ - platform: mqtt
+   name: "gosund_top_right"
+   state_topic: "stat/gosund_dual/POWER2"
+   command_topic: "cmnd/gosund_dual/POWER2"
+   availability_topic: "tele/gosund_dual/LWT"
+   qos: 1
+   payload_on: "ON"
+   payload_off: "OFF"
+   payload_available: "Online"
+   payload_not_available: "Offline"
+   retain: false

@@ -1,0 +1,5 @@
+zigpy_config:
+  ota:
+    ikea_provider: true
+    ledvance_provider: true
+    otau_directory: /config/zha_ota

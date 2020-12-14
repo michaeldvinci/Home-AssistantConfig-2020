@@ -1,10 +1,10 @@
-homeassistant: !include home.yaml
-http: !include http.yaml
-frontend: !include frontend.yaml
+homeassistant: !include configurations/home.yaml
+http: !include configurations/http.yaml
+frontend: !include configurations/frontend.yaml
 
 config:
 
-discovery: !include discovery.yaml
+discovery: !include configurations/discovery.yaml
 
 updater:
 history:
@@ -13,25 +13,25 @@ mobile_app:
 stream:
 system_health:
 
-emulated_hue: !include emulated-hue.yaml
-fastdotcom: !include fast.yaml
-ios: !include ios.yaml
-panel_iframe: !include panel.yaml
-octoprint: !include octoprint.yaml
-speedtestdotnet: !include speedtest.yaml
-tplink: !include tplink.yaml
-tts: !include tts.yaml
-zha: !include zha.yaml
+emulated_hue: !include configurations/emulated-hue.yaml
+fastdotcom: !include configurations/fast.yaml
+ios: !include configurations/ios.yaml
+panel_iframe: !include configurations/panel.yaml
+octoprint: !include configurations/octoprint.yaml
+speedtestdotnet: !include configurations/speedtest.yaml
+tplink: !include configurations/tplink.yaml
+tts: !include configurations/tts.yaml
+zha: !include configurations/zha.yaml
 
-automation: !include automations.yaml
-binary_sensor: !include binary-sensor.yaml
-camera: !include camera.yaml
-group: !include groups.yaml
-light: !include lights.yaml
-media_player: !include media-player.yaml
-remote: !include remote.yaml
-scene: !include scenes.yaml
-script: !include scripts.yaml
-sensor: !include sensor.yaml
-shell_command: !include shell.yaml
-switch: !include switch.yaml
+automation: !include configurations/automations.yaml
+binary_sensor: !include configurations/binary-sensor.yaml
+camera: !include configurations/camera.yaml
+group: !include configurations/groups.yaml
+light: !include configurations/lights.yaml
+media_player: !include configurations/media-player.yaml
+remote: !include configurations/remote.yaml
+scene: !include configurations/scenes.yaml
+script: !include configurations/scripts.yaml
+sensor: !include configurations/sensor.yaml
+shell_command: !include configurations/shell.yaml
+switch: !include configurations/switch.yaml
