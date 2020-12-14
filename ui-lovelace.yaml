@@ -1,13 +1,12 @@
 custom_header:
   button_text:
-    options: '{{ hours12 }}:{{ minutesLZ }} {{ ampm }}'
+    options: "{{ hours12 }}:{{ minutesLZ }} {{ ampm }}"
   compact_mode: true
   hide_help: true
   hide_unused: true
-title: ''
+title: ""
 views:
-  - icon: 'mdi:home-circle'
-    id: home
+  - icon: "mdi:home-circle"
     panel: false
     path: desktop
     theme: ios-dark-mode
@@ -21,9 +20,9 @@ views:
               - cards:
                   - cards:
                       - entity: light.wled_tv_ambilight
-                        name: ' '
+                        name: " "
                         type: light
-                        icon: 'mdi:television'
+                        icon: "mdi:television"
                         style: |
                           :host {
                           --paper-item-icon-color: red;
@@ -36,7 +35,7 @@ views:
                             name: Ambilight
                         font_size: 80
                         height: 300
-                        icon: 'mdi:flash'
+                        icon: "mdi:flash"
                         name: Ambilight
                         points_per_hour: 5
                         show:
@@ -50,14 +49,14 @@ views:
                           name: false
                           state: true
                         align_header: center
-                        type: 'custom:mini-graph-card'
+                        type: "custom:mini-graph-card"
                         update_interval: 300
                     type: vertical-stack
                   - cards:
                       - entity: light.wled_desk_master
-                        name: ' '
+                        name: " "
                         type: light
-                        icon: 'mdi:desktop-tower-monitor'
+                        icon: "mdi:desktop-tower-monitor"
                       - decimals: 3
                         align_state: center
                         entities:
@@ -66,7 +65,7 @@ views:
                             name: Backlight
                         font_size: 80
                         height: 300
-                        icon: 'mdi:flash'
+                        icon: "mdi:flash"
                         name: Backlight
                         points_per_hour: 5
                         show:
@@ -80,14 +79,14 @@ views:
                           name: false
                           state: true
                         align_header: center
-                        type: 'custom:mini-graph-card'
+                        type: "custom:mini-graph-card"
                         update_interval: 300
                     type: vertical-stack
                   - cards:
                       - entity: light.wled_bench
-                        name: ' '
+                        name: " "
                         type: light
-                        icon: 'mdi:soldering-iron'
+                        icon: "mdi:soldering-iron"
                       - decimals: 3
                         align_state: center
                         entities:
@@ -96,7 +95,7 @@ views:
                             name: Bench
                         font_size: 80
                         height: 300
-                        icon: 'mdi:flash'
+                        icon: "mdi:flash"
                         name: Bench
                         points_per_hour: 5
                         show:
@@ -110,14 +109,14 @@ views:
                           name: false
                           state: true
                         align_header: center
-                        type: 'custom:mini-graph-card'
+                        type: "custom:mini-graph-card"
                         update_interval: 300
                     type: vertical-stack
                   - cards:
                       - entity: light.wled_3d_printer
-                        name: ' '
+                        name: " "
                         type: light
-                        icon: 'mdi:printer-3d-nozzle-outline'
+                        icon: "mdi:printer-3d-nozzle-outline"
                       - decimals: 3
                         align_state: center
                         entities:
@@ -126,7 +125,7 @@ views:
                             name: Ambilight
                         font_size: 80
                         height: 300
-                        icon: 'mdi:flash'
+                        icon: "mdi:flash"
                         name: Ambilight
                         points_per_hour: 5
                         show:
@@ -140,11 +139,11 @@ views:
                           name: false
                           state: true
                         align_header: center
-                        type: 'custom:mini-graph-card'
+                        type: "custom:mini-graph-card"
                         update_interval: 300
                     type: vertical-stack
                 type: horizontal-stack
-            type: 'custom:stack-in-card'
+            type: "custom:stack-in-card"
           - decimals: 3
             align_state: center
             entities:
@@ -162,7 +161,7 @@ views:
                 name: Printer
             font_size: 100
             height: 150
-            icon: 'mdi:flash'
+            icon: "mdi:flash"
             name: WLED Estimated Usage (Amps)
             points_per_hour: 5
             show:
@@ -173,7 +172,7 @@ views:
               name: false
               state: false
             align_header: center
-            type: 'custom:mini-graph-card'
+            type: "custom:mini-graph-card"
             update_interval: 300
         type: vertical-stack
       - cards:
@@ -186,26 +185,25 @@ views:
           - cards: []
             type: horizontal-stack
           - entities:
-              - type: 'custom:fold-entity-row'
+              - type: "custom:fold-entity-row"
                 head: group.apartment_lights
                 name: Apartment
-              - type: 'custom:fold-entity-row'
+              - type: "custom:fold-entity-row"
                 head: group.window_lights
                 name: Windows
-              - type: 'custom:fold-entity-row'
+              - type: "custom:fold-entity-row"
                 head: group.everything_else_lights
                 name: Everything Else
-              - type: 'custom:fold-entity-row'
+              - type: "custom:fold-entity-row"
                 head: group.bedroom_lights
                 name: Bedroom
-              - type: 'custom:fold-entity-row'
+              - type: "custom:fold-entity-row"
                 head: group.bathroom_lights
                 name: Bathroom
             show_header_toggle: false
             type: entities
         type: vertical-stack
-  - icon: 'mdi:home-circle'
-    id: mobile
+  - icon: "mdi:home-circle"
     path: mobile
     panel: false
     theme: ios-dark-mode
@@ -232,7 +230,7 @@ views:
                 name: Printer
             font_size: 100
             height: 150
-            icon: 'mdi:flash'
+            icon: "mdi:flash"
             name: WLED Estimated Usage (Amps)
             points_per_hour: 5
             show:
@@ -243,14 +241,14 @@ views:
               name: false
               state: false
             align_header: center
-            type: 'custom:mini-graph-card'
+            type: "custom:mini-graph-card"
             update_interval: 300
           - cards:
               - cards:
                   - entity: light.wled_tv_ambilight
-                    name: ' '
+                    name: " "
                     type: light
-                    icon: 'mdi:television'
+                    icon: "mdi:television"
                   - decimals: 3
                     align_state: center
                     entities:
@@ -259,7 +257,7 @@ views:
                         name: Ambilight
                     font_size: 80
                     height: 300
-                    icon: 'mdi:flash'
+                    icon: "mdi:flash"
                     name: Ambilight
                     points_per_hour: 5
                     show:
@@ -273,14 +271,14 @@ views:
                       name: false
                       state: true
                     align_header: center
-                    type: 'custom:mini-graph-card'
+                    type: "custom:mini-graph-card"
                     update_interval: 300
-                type: 'custom:stack-in-card'
+                type: "custom:stack-in-card"
               - cards:
                   - entity: light.wled_desk_master
-                    name: ' '
+                    name: " "
                     type: light
-                    icon: 'mdi:desktop-tower-monitor'
+                    icon: "mdi:desktop-tower-monitor"
                   - decimals: 3
                     align_state: center
                     entities:
@@ -289,7 +287,7 @@ views:
                         name: Backlight
                     font_size: 80
                     height: 300
-                    icon: 'mdi:flash'
+                    icon: "mdi:flash"
                     name: Backlight
                     points_per_hour: 5
                     show:
@@ -303,16 +301,16 @@ views:
                       name: false
                       state: true
                     align_header: center
-                    type: 'custom:mini-graph-card'
+                    type: "custom:mini-graph-card"
                     update_interval: 300
-                type: 'custom:stack-in-card'
+                type: "custom:stack-in-card"
             type: horizontal-stack
           - cards:
               - cards:
                   - entity: light.wled_bench
-                    name: ' '
+                    name: " "
                     type: light
-                    icon: 'mdi:soldering-iron'
+                    icon: "mdi:soldering-iron"
                   - decimals: 3
                     align_state: center
                     entities:
@@ -321,7 +319,7 @@ views:
                         name: Bench
                     font_size: 80
                     height: 300
-                    icon: 'mdi:flash'
+                    icon: "mdi:flash"
                     name: Bench
                     points_per_hour: 5
                     show:
@@ -335,14 +333,14 @@ views:
                       name: false
                       state: true
                     align_header: center
-                    type: 'custom:mini-graph-card'
+                    type: "custom:mini-graph-card"
                     update_interval: 300
-                type: 'custom:stack-in-card'
+                type: "custom:stack-in-card"
               - cards:
                   - entity: light.wled_3d_printer
-                    name: ' '
+                    name: " "
                     type: light
-                    icon: 'mdi:printer-3d-nozzle-outline'
+                    icon: "mdi:printer-3d-nozzle-outline"
                   - decimals: 3
                     align_state: center
                     entities:
@@ -351,7 +349,7 @@ views:
                         name: Ambilight
                     font_size: 80
                     height: 300
-                    icon: 'mdi:flash'
+                    icon: "mdi:flash"
                     name: Ambilight
                     points_per_hour: 5
                     show:
@@ -365,9 +363,9 @@ views:
                       name: false
                       state: true
                     align_header: center
-                    type: 'custom:mini-graph-card'
+                    type: "custom:mini-graph-card"
                     update_interval: 300
-                type: 'custom:stack-in-card'
+                type: "custom:stack-in-card"
             type: horizontal-stack
         type: vertical-stack
       - cards:
@@ -380,19 +378,19 @@ views:
           - cards: []
             type: horizontal-stack
           - entities:
-              - type: 'custom:fold-entity-row'
+              - type: "custom:fold-entity-row"
                 head: group.apartment_lights
                 name: Apartment
-              - type: 'custom:fold-entity-row'
+              - type: "custom:fold-entity-row"
                 head: group.window_lights
                 name: Windows
-              - type: 'custom:fold-entity-row'
+              - type: "custom:fold-entity-row"
                 head: group.everything_else_lights
                 name: Everything Else
-              - type: 'custom:fold-entity-row'
+              - type: "custom:fold-entity-row"
                 head: group.bedroom_lights
                 name: Bedroom
-              - type: 'custom:fold-entity-row'
+              - type: "custom:fold-entity-row"
                 head: group.bathroom_lights
                 name: Bathroom
             show_header_toggle: false

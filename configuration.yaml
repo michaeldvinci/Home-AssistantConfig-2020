@@ -18,6 +18,7 @@ fastdotcom: !include fast.yaml
 ios: !include ios.yaml
 panel_iframe: !include panel.yaml
 octoprint: !include octoprint.yaml
+speedtestdotnet: !include speedtest.yaml
 tplink: !include tplink.yaml
 tts: !include tts.yaml
 zha: !include zha.yaml

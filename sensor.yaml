@@ -24,6 +24,12 @@
 - platform: cpuspeed
   name: processor_use
 
+- platform: github
+  access_token: !secret github_api_token
+  repositories:
+    - path: "Aircoookie/WLED"
+      name: github_wled
+
 - platform: command_line
   name: cpu_temperature
   command: "cat /sys/class/thermal/thermal_zone0/temp"
