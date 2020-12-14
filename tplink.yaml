@@ -1,3 +1,0 @@
-discovery: false
-switch:
-  - host: !secret tplink_ip

@@ -1,3 +1,0 @@
-- platform: harmony
-  name: Living Room Harmony
-  host: !secret living_room_harmony_ip

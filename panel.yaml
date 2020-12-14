@@ -1,4 +1,0 @@
-tasmota:
-  title: "Tasmota"
-  icon: mdi:power-socket-us
-  url: !secret tasmota_link
