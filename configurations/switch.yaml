@@ -1,13 +1,3 @@
- - platform: wake_on_lan
-   name: "PC"
-   mac: !secret wol_mac
-   host: !secret wol_host
-   broadcast_address: 255.255.255.255
-   turn_off:
-    - service: script.turn_on
-      data:
-        entity_id: script.pc_off
-        
  - platform: mqtt
    name: "gosund_top_left"
    state_topic: "stat/gosund_dual/POWER1"
