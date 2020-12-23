@@ -7,35 +7,35 @@
     ambilight_estimated_current_a:
       friendly_name: "Ambilight estimated current amps"
       unit_of_measurement: "A"
-      value_template: "{{ states.sensor.wled_tv_ambilight_estimated_current.state | multiply(0.001) | round(3) }}"
+      value_template: "{{ states.sensor.wled_tv_ambilight_estimated_current.state | multiply(0.001) | round(2) }}"
     wled_bench_estimated_current_a:
       friendly_name: "Bench estimated current amps"
       unit_of_measurement: "A"
-      value_template: "{{ states.sensor.wled_bench_estimated_current.state | multiply(0.001) | round(3) }}"
+      value_template: "{{ states.sensor.wled_bench_estimated_current.state | multiply(0.001) | round(2) }}"
     wled_desk_estimated_current_a:
       friendly_name: "Desk estimated current amps"
       unit_of_measurement: "A"
-      value_template: "{{ states.sensor.wled_desk_estimated_current.state | multiply(0.001) | round(3) }}"
+      value_template: "{{ states.sensor.wled_desk_estimated_current.state | multiply(0.001) | round(2) }}"
     wled_printer_estimated_current_a:
       friendly_name: "Desk estimated current amps"
       unit_of_measurement: "A"
-      value_template: "{{ states.sensor.wled_3d_printer_estimated_current.state | multiply(0.001) | round(3) }}"
+      value_template: "{{ states.sensor.wled_3d_printer_estimated_current.state | multiply(0.001) | round(2) }}"
     ambilight_estimated_current_w:
       friendly_name: "Ambilight estimated current watts"
-      unit_of_measurement: "A"
-      value_template: "{{ states.sensor.ambilight_estimated_current_a.state | multiply(5) | round(3) }}"
+      unit_of_measurement: "W"
+      value_template: "{{ states.sensor.ambilight_estimated_current_a.state | multiply(5) | round(2) }}"
     wled_bench_estimated_current_w:
       friendly_name: "Bench estimated current watts"
-      unit_of_measurement: "A"
-      value_template: "{{ states.sensor.wled_bench_estimated_current_a.state | multiply(5) | round(3) }}"
+      unit_of_measurement: "W"
+      value_template: "{{ states.sensor.wled_bench_estimated_current_a.state | multiply(5) | round(2) }}"
     wled_desk_estimated_current_w:
       friendly_name: "Desk estimated current watts"
-      unit_of_measurement: "A"
-      value_template: "{{ states.sensor.wled_desk_estimated_current_a.state | multiply(5) | round(3) }}"
+      unit_of_measurement: "W"
+      value_template: "{{ states.sensor.wled_desk_estimated_current_a.state | multiply(5) | round(2) }}"
     wled_printer_estimated_current_w:
       friendly_name: "Desk estimated current watts"
-      unit_of_measurement: "A"
-      value_template: "{{ states.sensor.wled_printer_estimated_current_a.state | multiply(5) | round(3) }}"
+      unit_of_measurement: "W"
+      value_template: "{{ states.sensor.wled_printer_estimated_current_a.state | multiply(5) | round(2) }}"
 
 - platform: cpuspeed
   name: processor_use

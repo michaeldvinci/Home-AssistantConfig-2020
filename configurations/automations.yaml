@@ -1,3 +1,21 @@
+#####################################
+###                               ###
+###             System            ###
+###                               ###
+#####################################
+
+- id: "set_theme"
+  alias: Set Theme on HA Start
+  description: ""
+  trigger:
+    - event: start
+      platform: homeassistant
+  condition: []
+  action:
+    - data:
+        name: "clear-dark"
+      service: frontend.set_theme
+
 ## Notify of High Disk Use - credit to @sauloonzem thank you
 - alias: Disk Use Alarm
   initial_state: true
@@ -215,31 +233,25 @@
 ###                               ###
 #####################################
 
-- alias: Send a notice when 3D print is done
+- alias: Notify Print Paused
+  initial_state: true
   trigger:
     - platform: state
-      entity_id: binary_sensor.maker_select_printing
-      to: "off"
-      from: "on"
+      entity_id: sensor.printer_current_state
+      from: "Printing"
+      to: "Paused"
   action:
-    - service: notify.notify
-      data:
-        message: "Your 3D print is complete"
-        title: "Print Complete"
+    service: notify.notify
+    data:
+      title: "Print Paused"
+      message: "Check it out."
 
-- id: "set_theme"
-  alias: Set Theme on HA Start
-  description: ""
-  trigger:
-    - event: start
-      platform: homeassistant
-  condition: []
-  action:
-    - data:
-        name: "clear-dark"
-      service: frontend.set_theme
+#####################################
+###                               ###
+###            Monitor            ###
+###                               ###
+#####################################
 
-## Notify of High CPU Usage - credit to @sauloonzem thank you
 - alias: Monitor on, backlight on
   initial_state: true
   trigger:
@@ -251,7 +263,6 @@
       data:
         entity_id: light.wled_desk_master
 
-## Notify of High CPU Usage - credit to @sauloonzem thank you
 - alias: Monitor off, backlight off
   initial_state: true
   trigger:
